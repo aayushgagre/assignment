@@ -1,0 +1,79 @@
+<h2>Add Product..</h2>
+   <form #empForm="ngForm" (ngSubmit)="addEmployee()"> 
+       <table>
+        <tr>
+            <td>Product Id is:-</td>
+            <td><input type="text" name="PId" id="id" [(ngModel)]="pId" #idcontrol="ngModel" required/></td>
+            <span *ngIf="idcontrol.touched && idcontrol.invalid"><font color="red">*Product Id Required</font></span>
+        </tr>
+        <tr>
+            <td>Product Name:-</td>
+            <td><input type="text" name="PName" id="name" [(ngModel)]="pName" #namecontrol="ngModel" required/></td>
+            <span *ngIf="namecontrol.touched && namecontrol.invalid"><font color="red">*Product Name Required</font></span>
+        </tr>
+        <tr>
+            <td>Product Cost:-</td>
+            <td><input type="text" name="Pcost" id="cost" [(ngModel)]="pCost" #costcontrol="ngModel" required/></td>
+            <span *ngIf="costcontrol.touched && costcontrol.invalid"><font color="red">*Product Cost Required</font></span>
+        </tr>
+        <tr>
+            <td>Product Online:-</td>
+            <td><input type="radio" name="Poption" id="option" [(ngModel)]="pOption" #optioncontrol="ngModel" value="yes" />Yes<br>
+                <input type="radio" name="Poption" id="option" [(ngModel)]="pOption" #optioncontrol="ngModel" value="No" />No</td>
+            <span *ngIf="optioncontrol.touched && optioncontrol.invalid"><font color="red">*Please Select One option</font></span>
+        </tr>
+        <tr>
+            <td>Product Category:-</td>
+            <td><select name="Pcatg" id="catg"  [(ngModel)]="pSelect" #selectcontrol="ngModel" required>
+                    <option value="Not Selected">-Select-</option>
+                    <option value="Toy">Toy</option>
+                    <option value="Cloths">Cloths </option>
+                    <option value="Makeup">Makeup </option>
+                    
+                
+                </select> 
+            </td>
+            <span *ngIf="selectcontrol.touched && selectcontrol.invalid"><font color="red">*Please Select One option</font></span>
+        </tr>
+        <tr>
+                <td>Available in Store:-</td>
+                <td><input type="checkbox" name="Available" id="available" value="Big Bazar"  [(ngModel)]="pAvilable1" #avicontrol="ngModel"> Big bazar
+                        <input type="checkbox" name="Available"  id="available" value="DMart"  [(ngModel)]="pAvilable2" #avicontrol="ngModel">DMart
+                        <input type="checkbox" name="Available" id="available" value="Reliance"  [(ngModel)]="pAvilabl3" #avicontrol="ngModel">Reliance
+                    <input type="checkbox" name="Available" id="available" value="Mega Store"  [(ngModel)]="pAvilabl4" #avicontrol="ngModel">Mega store	</td>
+                    <span *ngIf="avicontrol.touched && avicontrol.invalid"><font color="red">*Please Select One option</font></span>
+         </tr>  
+       <tr>
+           <td><input type="submit" value="Add Product" [disabled]="empForm.invalid" /></td>
+       </tr>
+    </table>
+</form><br><br>
+
+<table border="2">
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Cost</th>
+            <th>Product Online</th>
+            <th>Product Category</th>
+            <th>Available in Store</th>
+    
+        </tr>
+        <tr *ngFor="let p of pData">
+            <td>{{p.pId}}</td>
+            <td>{{p.pName}}</td>
+            <td>{{p.pCost}}</td>
+            <td>{{p.pOption}}</td>
+            <td>{{p.pSelect}}</td>
+            <td>{{p.pAvilable1}}</td>
+        </tr>
+        
+    </table>
+  
+   
+
+ 
+
+   
+    
+    
